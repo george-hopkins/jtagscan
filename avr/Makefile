@@ -1,7 +1,7 @@
 all:
 	avr-gcc -Wall -O3 -o jtagscan-avr -mmcu=atmega32 jtagscan-avr.c
 	avr-objdump -h -S jtagscan-avr > jtagscan-avr.lst
-	avr-objcopy -j .text -j .data -O ihex jtagscan-avr jtagscan-avr.hex 
+	avr-objcopy -j .text -j .data -O ihex jtagscan-avr jtagscan-avr.hex
 
 clean:
 	rm -f jtagscan-avr *.hex *.lst
