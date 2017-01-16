@@ -1,0 +1,10 @@
+language: c
+
+sudo: true
+
+install:
+    - sudo apt-get install -y gcc-avr avr-libc libglade2-dev
+
+script:
+    - make -C avr
+    - make -C gui
