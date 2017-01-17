@@ -435,7 +435,12 @@ int load_relocations(char *file) {
 		return 0;
 
 	while(fgets(buf,5,fl)) {
-		int port=atoi(buf);
+		int port;
+		if(buf[0] >= 'A' && buf[0] <= 'D') {
+			port = (buf[0] - 'A') * 8 + atoi(buf + 1);
+		} else {
+			port = atoi(buf);
+		}
 		port2cable[port]=cnt;
 		cable2port[cnt]=port;
 		//g_print("%d <-> %d\n",cnt, port);
